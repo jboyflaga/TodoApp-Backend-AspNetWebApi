@@ -1,4 +1,4 @@
-namespace WebApi.Helpers;
+namespace TodoApp.WebApi.Helpers;
 
 public class AppSettings
 {

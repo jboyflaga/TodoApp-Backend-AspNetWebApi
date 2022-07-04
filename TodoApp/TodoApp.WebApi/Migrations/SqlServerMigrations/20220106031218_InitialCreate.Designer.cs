@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WebApi.Helpers;
+using TodoApp.WebApi.Helpers;
 
 #nullable disable
 
-namespace WebApi.Migrations.SqlServerMigrations
+namespace TodoApp.WebApi.Migrations.SqlServerMigrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20220106031218_InitialCreate")]

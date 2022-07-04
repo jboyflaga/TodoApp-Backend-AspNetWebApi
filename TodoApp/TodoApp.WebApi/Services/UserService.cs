@@ -1,11 +1,11 @@
-namespace WebApi.Services;
+namespace TodoApp.WebApi.Services;
 
 using AutoMapper;
 using BCrypt.Net;
-using WebApi.Authorization;
-using WebApi.Entities;
-using WebApi.Helpers;
-using WebApi.Models.Users;
+using TodoApp.WebApi.Authorization;
+using TodoApp.WebApi.Entities;
+using TodoApp.WebApi.Helpers;
+using TodoApp.WebApi.Models.Users;
 
 public interface IUserService
 {

@@ -1,4 +1,4 @@
-namespace WebApi.Entities;
+namespace TodoApp.WebApi.Entities;
 
 using System.Text.Json.Serialization;
 

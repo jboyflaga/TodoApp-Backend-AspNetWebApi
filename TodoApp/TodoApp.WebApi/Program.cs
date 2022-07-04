@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebApi.Authorization;
-using WebApi.Helpers;
-using WebApi.Services;
+using TodoApp.WebApi.Authorization;
+using TodoApp.WebApi.Helpers;
+using TodoApp.WebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

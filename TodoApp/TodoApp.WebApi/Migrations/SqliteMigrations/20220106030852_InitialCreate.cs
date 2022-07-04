@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace WebApi.Migrations.SqliteMigrations
+namespace TodoApp.WebApi.Migrations.SqliteMigrations
 {
     public partial class InitialCreate : Migration
     {

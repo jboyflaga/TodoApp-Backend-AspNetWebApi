@@ -1,6 +1,6 @@
-namespace WebApi.Authorization;
+namespace TodoApp.WebApi.Authorization;
 
-using WebApi.Services;
+using TodoApp.WebApi.Services;
 
 public class JwtMiddleware
 {

@@ -1,8 +1,8 @@
-namespace WebApi.Helpers;
+namespace TodoApp.WebApi.Helpers;
 
 using AutoMapper;
-using WebApi.Entities;
-using WebApi.Models.Users;
+using TodoApp.WebApi.Entities;
+using TodoApp.WebApi.Models.Users;
 
 public class AutoMapperProfile : Profile
 {

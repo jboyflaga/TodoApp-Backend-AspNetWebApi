@@ -1,7 +1,7 @@
-namespace WebApi.Helpers;
+namespace TodoApp.WebApi.Helpers;
 
 using Microsoft.EntityFrameworkCore;
-using WebApi.Entities;
+using TodoApp.WebApi.Entities;
 
 public class DataContext : DbContext
 {

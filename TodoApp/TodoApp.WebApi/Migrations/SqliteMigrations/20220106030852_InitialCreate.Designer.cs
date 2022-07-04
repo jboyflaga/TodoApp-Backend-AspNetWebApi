@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WebApi.Helpers;
+using TodoApp.WebApi.Helpers;
 
 #nullable disable
 
-namespace WebApi.Migrations.SqliteMigrations
+namespace TodoApp.WebApi.Migrations.SqliteMigrations
 {
     [DbContext(typeof(SqliteDataContext))]
     [Migration("20220106030852_InitialCreate")]

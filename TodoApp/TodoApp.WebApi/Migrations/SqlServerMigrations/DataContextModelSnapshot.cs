@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WebApi.Helpers;
+using TodoApp.WebApi.Helpers;
 
 #nullable disable
 
-namespace WebApi.Migrations.SqlServerMigrations
+namespace TodoApp.WebApi.Migrations.SqlServerMigrations
 {
     [DbContext(typeof(DataContext))]
     partial class DataContextModelSnapshot : ModelSnapshot

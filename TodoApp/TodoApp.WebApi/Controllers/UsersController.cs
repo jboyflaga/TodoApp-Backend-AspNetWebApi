@@ -1,12 +1,12 @@
-﻿namespace WebApi.Controllers;
+﻿namespace TodoApp.WebApi.Controllers;
 
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using WebApi.Authorization;
-using WebApi.Helpers;
-using WebApi.Models.Users;
-using WebApi.Services;
+using TodoApp.WebApi.Authorization;
+using TodoApp.WebApi.Helpers;
+using TodoApp.WebApi.Models.Users;
+using TodoApp.WebApi.Services;
 
 [Authorize]
 [ApiController]

@@ -1,4 +1,4 @@
-namespace WebApi.Models.Users;
+namespace TodoApp.WebApi.Models.Users;
 
 public class UpdateRequest
 {
