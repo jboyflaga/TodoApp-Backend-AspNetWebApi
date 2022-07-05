@@ -5,17 +5,21 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TodoApp.Web.Models;
+using TodoApp.WebApi.Authorization;
+using TodoApp.WebApi.Entities;
+using TodoApp.WebApi.Helpers;
+using TodoApp.WebApi.Models;
 
-namespace TodoApp.Web.Controllers
+namespace TodoApp.WebApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class TodoItemsController : ControllerBase
     {
-        private readonly TodoContext _context;
+        private readonly DataContext _context;
 
-        public TodoItemsController(TodoContext context)
+        public TodoItemsController(DataContext context)
         {
             _context = context;
         }

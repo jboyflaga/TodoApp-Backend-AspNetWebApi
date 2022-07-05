@@ -7,33 +7,57 @@ using TodoApp.WebApi.Helpers;
 
 #nullable disable
 
-namespace TodoApp.WebApi.Migrations.SqliteMigrations
+namespace TodoApp.WebApi.Migrations.SqlServerMigrations
 {
-    [DbContext(typeof(SqliteDataContext))]
-    [Migration("20220106030852_InitialCreate")]
-    partial class InitialCreate
+    [DbContext(typeof(DataContext))]
+    [Migration("20220705122938_AddTodoItemsTable")]
+    partial class AddTodoItemsTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.1");
 
-            modelBuilder.Entity("WebApi.Entities.User", b =>
+            modelBuilder.Entity("TodoApp.WebApi.Entities.TodoItem", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsComplete")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Secret")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TodoItems");
+                });
+
+            modelBuilder.Entity("TodoApp.WebApi.Entities.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PasswordHash")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Username")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

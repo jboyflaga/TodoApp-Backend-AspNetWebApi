@@ -1,4 +1,6 @@
-﻿namespace TodoApp.Web.Models
+﻿using TodoApp.WebApi.Entities;
+
+namespace TodoApp.WebApi.Models
 {
     public class TodoItemDTO
     {

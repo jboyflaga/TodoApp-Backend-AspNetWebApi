@@ -1,14 +1,14 @@
-namespace TodoApp.WebApi.Helpers;
+//namespace TodoApp.WebApi.Helpers;
 
-using Microsoft.EntityFrameworkCore;
+//using Microsoft.EntityFrameworkCore;
 
-public class SqliteDataContext : DataContext
-{
-    public SqliteDataContext(IConfiguration configuration) : base(configuration) { }
+//public class SqliteDataContext : DataContext
+//{
+//    public SqliteDataContext(IConfiguration configuration) : base(configuration) { }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder options)
-    {
-        // connect to sqlite database
-        options.UseSqlite(Configuration.GetConnectionString("WebApiDatabase"));
-    }
-}
+//    protected override void OnConfiguring(DbContextOptionsBuilder options)
+//    {
+//        // connect to sqlite database
+//        options.UseSqlite(Configuration.GetConnectionString("WebApiDatabase"));
+//    }
+//}
