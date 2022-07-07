@@ -96,11 +96,11 @@ namespace TodoApp.WebApi.Controllers
         // POST: api/TodoItems
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<TodoItem>> CreateTodoItem(TodoItemDTO todoItemDTO)
+        public async Task<ActionResult<TodoItemDTO>> CreateTodoItem(TodoItemDTO todoItemDTO)
         {
             if (_context.TodoItems == null)
             {
-                return Problem("Entity set 'TodoContext.TodoItems'  is null.");
+                return Problem($"Entity set {nameof(_context.TodoItems)}  is null.");
             }
           
             var todoItem = new TodoItem

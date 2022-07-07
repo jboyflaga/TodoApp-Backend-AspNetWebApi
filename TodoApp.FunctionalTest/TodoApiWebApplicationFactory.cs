@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TodoApp.WebApi;
+using TodoApp.WebApi.Helpers;
 using TodoApp.WebApi.Services;
 
 namespace TodoApp.FunctionalTests;
@@ -30,8 +32,27 @@ namespace TodoApp.FunctionalTests;
 
 public class TodoApiWebApplicationFactory : WebApplicationFactory<Program>
 {
+    public IConfiguration Configuration { get; private set; } = null!;
+
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
+        //builder.ConfigureServices(services =>
+        //{
+        //    services.AddDbContext<DataContext>((options, context) =>
+        //    {
+        //        context.UseSqlServer(
+        //            Configuration.GetConnectionString("TestingDbConnectionString"));
+        //    });
+        //});
+        builder.ConfigureAppConfiguration(config =>
+        {
+            Configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+            config.AddConfiguration(Configuration);
+        });
+
         // Is to be called after the `ConfigureServices` from the Startup
         // which allows you to overwrite the DI with mocked instances
         builder.ConfigureTestServices(services =>

@@ -9,5 +9,6 @@ namespace TodoApp.FunctionalTests;
 
 public class WeatherForecastConfigStub : IWeatherForecastConfigService
 {
-    public int NumberOfDays() => 10;
+    public const int NUMBER_OF_DAYS = 10;
+    public int NumberOfDays() => NUMBER_OF_DAYS;
 }

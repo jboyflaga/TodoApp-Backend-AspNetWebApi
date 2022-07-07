@@ -20,4 +20,8 @@ public class DataContext : DbContext
 
     public DbSet<User> Users { get; set; } = null!;
     public DbSet<TodoItem> TodoItems { get; set; } = null!;
+
+    #region Ignore
+    public DbSet<SampleDataFromDb> SampleDataFromDb { get; set; } = null!;
+    #endregion
 }

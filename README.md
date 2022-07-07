@@ -1,15 +1,26 @@
 # TodoApp.Backend.AspNetWebApi
 
+**Steps:**
+
+1. Run the `TodoApp.DbInit.Console` console app, which creates the db (if it does not exist), and runs the db migration scripts
+
+Note: be sure to change the connection string in the `appsettings.json` file.
+
+2. Run the `TodoApp.WebApi` app
+
+
+
+
 Resources:
 
 ["Create a web API with ASP.NET Core"](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio) from ASP.NET Docs
 
 [".NET 6.0 - User Registration and Login Tutorial with Example API"](https://jasonwatmore.com/post/2022/01/07/net-6-user-registration-and-login-tutorial-with-example-api) by Jason Watmore
 
+["How to test your C# Web API"](https://timdeschryver.dev/blog/how-to-test-your-csharp-web-api) by Tim Deschryver
+
 
 ## On Testing
-
-["How to test your C# Web API"](https://timdeschryver.dev/blog/how-to-test-your-csharp-web-api) by Tim Deschryver
 
 ["Functional Test == Acceptance Test == End-to-End Test"](https://www.obeythetestinggoat.com/book/chapter_02_unittest.html)
 
