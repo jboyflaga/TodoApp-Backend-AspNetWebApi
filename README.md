@@ -9,13 +9,13 @@
 2. Run the `TodoApp.WebApi` app
 
 
-## Steps to run the Web API:
+## Steps to run the functional tests:
 
 0. Change the connection string named `WebApiDatabase` in the `TodoApp.DbInit.Console` -> `appsettings.json` to your test database
 
-This console app will create the database if it does not exist
+1. Run the `TodoApp.DbInit.Console` console app, which creates the db (if it does not exist), and runs the db migration scripts
 
-1. Run the tests using the Test Explorer in Visual Studio
+2. Run the tests using the Test Explorer in Visual Studio
 
 
 
