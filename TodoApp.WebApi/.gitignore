@@ -41,7 +41,5 @@ typings
 bin
 obj
 
-# local sqlite db that is auto generated
-LocalDatabase.db
-LocalDatabase.db-shm
-LocalDatabase.db-wal
+# Generated SQLite db
+WebApiDatabase.db

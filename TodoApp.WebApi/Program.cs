@@ -1,10 +1,11 @@
-﻿namespace TodoApp.WebApi;
-
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using System.Text.Json.Serialization;
 using TodoApp.WebApi.Authorization;
 using TodoApp.WebApi.Helpers;
 using TodoApp.WebApi.Services;
+
+namespace TodoApp.WebApi;
 
 public class Program
 {
@@ -18,12 +19,13 @@ public class Program
             var env = builder.Environment;
 
             services.AddDbContext<DataContext>();
-
             services.AddCors();
-            services.AddControllers();
-
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            services.AddEndpointsApiExplorer();
+            services.AddControllers().AddJsonOptions(x =>
+            {
+                // serialize enums as strings in api responses (e.g. Role)
+                x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            });
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddSwaggerGen(option =>
             {
                 // ref. https://www.infoworld.com/article/3650668/implement-authorization-for-swagger-in-aspnet-core-6.html
@@ -37,7 +39,7 @@ public class Program
                     BearerFormat = "JWT",
                     Scheme = "Bearer"
                 });
-                option.AddSecurityRequirement(new OpenApiSecurityRequirement                
+                option.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
                     {
                         new OpenApiSecurityScheme
@@ -53,15 +55,13 @@ public class Program
                 });
             });
 
-            // configure automapper with all automapper profiles from this assembly
-            services.AddAutoMapper(typeof(Program));
-
             // configure strongly typed settings object
             services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
             // configure DI for application services
             services.AddScoped<IJwtUtils, JwtUtils>();
-            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IWeatherForecastConfigService, WeatherForecastConfigService>();
         }
 
@@ -69,19 +69,16 @@ public class Program
 
         // configure HTTP request pipeline
         {
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+            // generated swagger json and swagger ui middleware
+            app.UseSwagger();
+            app.UseSwaggerUI(x => x.SwaggerEndpoint("/swagger/v1/swagger.json", "Todo App API with Sign-up and Verification API"));
 
             // global cors policy
             app.UseCors(x => x
-                .AllowAnyOrigin()
+                .SetIsOriginAllowed(origin => true)
                 .AllowAnyMethod()
-                .AllowAnyHeader());
+                .AllowAnyHeader()
+                .AllowCredentials());
 
             // global error handler
             app.UseMiddleware<ErrorHandlerMiddleware>();

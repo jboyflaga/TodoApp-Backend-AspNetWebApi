@@ -1,13 +1,21 @@
-# TodoApp.Backend.AspNetWebApi
+# TodoApp - Backend - ASP.NET Web API
 
-**Steps:**
+## Steps to run the Web API:
+
+0. Change the connection string named `WebApiDatabase` in the `TodoApp.DbInit.Console` -> `appsettings.json`
 
 1. Run the `TodoApp.DbInit.Console` console app, which creates the db (if it does not exist), and runs the db migration scripts
 
-Note: be sure to change the connection string in the `appsettings.json` file.
-
 2. Run the `TodoApp.WebApi` app
 
+
+## Steps to run the Web API:
+
+0. Change the connection string named `WebApiDatabase` in the `TodoApp.DbInit.Console` -> `appsettings.json` to your test database
+
+This console app will create the database if it does not exist
+
+1. Run the tests using the Test Explorer in Visual Studio
 
 
 
@@ -30,6 +38,7 @@ Resources:
 
 ["one good integration test is worth 1,000 unit tests"](https://khalidabuhakmeh.com/secrets-of-a-dotnet-professional) by Khalid Abuhakmeh
 
+JsonException: The JSON value could not be converted to Enum - https://makolyte.com/jsonexception-the-json-value-could-not-be-converted-to-enum/
 
 
 ## If you want to add migration using Package Manager Console in Visual Studio 2022
